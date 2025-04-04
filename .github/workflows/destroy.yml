@@ -8,7 +8,7 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      CLIENT_NAME: jaiditya
+      CLIENT_NAME: anayverma
 
     steps:
       - name: Checkout
