@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1
-      DOCKER_HUB_REPO: vampconnoisseur/flask-server
+      DOCKER_HUB_REPO: anayverma/flask-server
       IMAGE_TAG: ${{ github.run_number }}
       INSTANCE_NAME: flask-server
       CLIENT_NAME: jaiditya

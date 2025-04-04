@@ -56,11 +56,11 @@ resource "aws_instance" "flask_server" {
             sudo systemctl start docker
             sudo systemctl enable docker
 
-            echo "Pulling new Docker image: vampconnoisseur/flask-server:${var.image_tag}"
-            sudo docker pull vampconnoisseur/flask-server:${var.image_tag}
+            echo "Pulling new Docker image: anayverma/flask-server:${var.image_tag}"
+            sudo docker pull anayverma/flask-server:${var.image_tag}
 
             echo "Running new container..."
-            sudo docker run -d --name flask-container -p 8765:8765 vampconnoisseur/flask-server:${var.image_tag}
+            sudo docker run -d --name flask-container -p 8765:8765 anayverma/flask-server:${var.image_tag}
   EOF
 
   tags = {
@@ -96,9 +96,9 @@ resource "null_resource" "update_flask_server" {
 
       "if sudo docker ps -a --format '{{.Names}}' | grep -q '^flask-container$'; then sudo docker stop flask-container && sudo docker rm flask-container; fi",
 
-      "sudo docker pull vampconnoisseur/flask-server:${var.image_tag}",
+      "sudo docker pull anayverma/flask-server:${var.image_tag}",
 
-      "sudo docker run -d --name flask-container -p 8765:8765 vampconnoisseur/flask-server:${var.image_tag}"
+      "sudo docker run -d --name flask-container -p 8765:8765 anayverma/flask-server:${var.image_tag}"
     ]
   }
 }
